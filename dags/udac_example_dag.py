@@ -22,38 +22,16 @@ dag = DAG('udac_example_dag',
 
 #start_operator = DummyOperator(task_id='Begin_execution',  dag=dag)
 
-# stage_events_to_redshift = StageToRedshiftOperator(
-#     task_id='Stage_events',
-#     dag=dag,
-#     table='public.staging_events',
-#     redshift_conn_id="redshift",
-#     aws_credentials_id="aws_credentials",
-#     s3_bucket="udacity-dend",
-#     s3_key="log_data",
-#     json_opts="s3://udacity-dend/log_json_path.json",
-#     destination_table_sql="""
-#         CREATE TABLE public.staging_events (
-#             artist varchar(256),
-#             auth varchar(256),
-#             firstname varchar(256),
-#             gender varchar(256),
-#             iteminsession int4,
-#             lastname varchar(256),
-#             length numeric(18,0),
-#             "level" varchar(256),
-#             location varchar(256),
-#             "method" varchar(256),
-#             page varchar(256),
-#             registration numeric(18,0),
-#             sessionid int4,
-#             song varchar(256),
-#             status int4,
-#             ts int8,
-#             useragent varchar(256),
-#             userid int4
-#         );
-#     """
-# )
+stage_events_to_redshift = StageToRedshiftOperator(
+    task_id='Stage_events',
+    dag=dag,
+    table='public.staging_events',
+    redshift_conn_id="redshift",
+    aws_credentials_id="aws_credentials",
+    s3_bucket="udacity-dend",
+    s3_key="log_data",
+    json_opts="s3://udacity-dend/log_json_path.json",
+)
 
 # stage_songs_to_redshift = StageToRedshiftOperator(
 #     task_id='Stage_songs',
