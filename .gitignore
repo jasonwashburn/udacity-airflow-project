@@ -1,0 +1,8 @@
+*.pyc
+airflow.db
+airflow.cfg
+*.pid
+__pycache__
+logs/
+.vscode
+.DS_Store
