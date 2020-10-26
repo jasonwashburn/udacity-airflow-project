@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import os
 from subprocess import run
-from plugins.operators import stage_redshift
+# from plugins.operators import stage_redshift
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators import (StageToRedshiftOperator, LoadFactOperator,
