@@ -38,10 +38,10 @@ stage_events_to_redshift = StageToRedshiftOperator(
 #     dag=dag
 # )
 
-load_songplays_table = LoadFactOperator(
-    task_id='Load_songplays_fact_table',
-    dag=dag
-)
+# load_songplays_table = LoadFactOperator(
+#     task_id='Load_songplays_fact_table',
+#     dag=dag
+# )
 
 # load_user_dimension_table = LoadDimensionOperator(
 #     task_id='Load_user_dim_table',
