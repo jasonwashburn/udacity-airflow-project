@@ -26,8 +26,6 @@ class LoadDimensionOperator(BaseOperator):
         self.append_mode = append_mode
 
     def execute(self, context):
-        self.log.info('LoadDimensionOperator not implemented yet')
-
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
         
         if not self.append_mode:
