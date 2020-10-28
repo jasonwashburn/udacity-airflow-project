@@ -4,6 +4,16 @@ from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 
 class StageToRedshiftOperator(BaseOperator):
+    """ Copies data from JSON files on S3 to staging tables in Redshift.
+
+        INPUTS:
+        redshift_conn_id = Airflow Connection to Redshift
+        table = target staging table
+        sql_statement = SQL statement to perform INSERTS
+        s3_bucket = S3 bucket where files are stored
+        s3_key = S3 key for directory or JSON file
+        json_opts = Additional options to add to SQL COPY statement ie: 'Auto' etc..
+    """
     ui_color = '#358140'
     template_fields = ("s3_key",)
     copy_sql = """
