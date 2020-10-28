@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 import os
 from subprocess import run
-# from plugins.operators import stage_redshift
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators import (StageToRedshiftOperator, LoadFactOperator,
@@ -12,7 +11,7 @@ from helpers import SqlQueries
 # AWS_SECRET = os.environ.get('AWS_SECRET')
 
 default_args = {
-    'owner': 'udacity',
+    'owner': 'sparkify',
     'start_date': datetime(2019, 1, 12),
     'depends_on_past': False,
     'retries': 3,
@@ -21,7 +20,7 @@ default_args = {
     'email_on_retry': False
 }
 
-dag = DAG('udac_example_dag',
+dag = DAG('sparkify_etl',
           default_args=default_args,
           description='Load and transform data in Redshift with Airflow',
           schedule_interval='1 * * * *',
