@@ -5,7 +5,7 @@ from airflow.exceptions import AirflowException
 
 class DataQualityOperator(BaseOperator):
     """ Performs data quality checks by executing provided SQL statements
-        and comparing result to provided expected results.
+        and comparing results to expected results.
 
         INPUTS:
         redshift_conn_id = Airflow Connection to Redshift

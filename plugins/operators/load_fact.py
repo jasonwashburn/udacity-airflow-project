@@ -3,6 +3,13 @@ from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 
 class LoadFactOperator(BaseOperator):
+    """ Inserts data into a Fact table utilizing a provided SQL statement.
+
+        INPUTS:
+        redshift_conn_id = Airflow Connection to Redshift
+        table = target Fact table
+        sql_statement = SQL statement to perform INSERTS
+    """
 
     ui_color = '#F98866'
 

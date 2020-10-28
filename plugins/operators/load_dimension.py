@@ -3,6 +3,16 @@ from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 
 class LoadDimensionOperator(BaseOperator):
+    """ Inserts data into a dimension table utilizing a provided SQL statement.
+
+        INPUTS:
+        redshift_conn_id = Airflow Connection to Redshift
+        table = target dimension table
+        sql_statement = SQL statement to perform INSERTS
+        append_mode = (Boolean) If True, insert statement appends data to 
+            existing table data,otherwise table is wiped clean prior to 
+            performing inserts.
+    """
 
     ui_color = '#80BD9E'
 
@@ -29,7 +39,7 @@ class LoadDimensionOperator(BaseOperator):
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
         
         if not self.append_mode:
-            self.log.info(f"Clearing {self.table} table.")
+            self.log.info(f"Wiping {self.table} table clean!")
             redshift.run(f"DELETE FROM {self.table}")
 
         self.log.info(f"Building {self.table} table.")
