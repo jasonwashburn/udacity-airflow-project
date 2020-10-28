@@ -1,6 +1,7 @@
 *.pyc
 airflow.db
 airflow.cfg
+unittests.cfg
 *.pid
 __pycache__
 logs/
