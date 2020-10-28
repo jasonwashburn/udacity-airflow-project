@@ -1,4 +1,4 @@
-# Project: Data Warehouse
+# Project: Data Pipelines with Airflow
 
 ## Description
 The purpose of this project is to create an airflow dag and associated custom 
