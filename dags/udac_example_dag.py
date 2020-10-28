@@ -98,7 +98,7 @@ run_quality_checks = DataQualityOperator(
     redshift_conn_id='redshift',
     tests=[
         { 'test': 'SELECT COUNT(*) FROM public.songplays WHERE userid IS NULL', 'expected_result': 0 },
-        { 'test': 'SELECT COUNT(*) FROM public.songplays', 'expected_result': 100}
+        { 'test': 'SELECT COUNT(*) FROM public.songplays', 'expected_result': 27280}
     ]
 )
 
